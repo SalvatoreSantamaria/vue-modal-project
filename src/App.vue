@@ -1,16 +1,23 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+    <div id="app">
+      <img alt="Vue logo" src="./assets/logo.png">
+      <HelloWorld msg="Welcome to Your Vue.js App Yay!"/> <!-- Import component step 2 -->
+      <p>{{ title }}</p> <!--Template Property 2 -->
+    </div>
+
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import HelloWorld from './components/HelloWorld.vue' // Import component step 1
 
 export default {
   name: 'App',
-  components: {
+  data() { //Template Property 1
+    return {
+      title: "This is the title!"
+    }
+  },
+  components: { // Import component step 3
     HelloWorld
   }
 }
