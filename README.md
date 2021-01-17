@@ -69,6 +69,7 @@ export default {
 ```
 2. Output to the template `<p>{{ title }}</p>`
 
+---
 ## Use Refs to get references to DOM elements
 1. Use ref="nameCanBeWhateverYouLike" on an DOM element: 
 ```
@@ -90,4 +91,37 @@ methods: {
 See https://www.youtube.com/watch?v=KM1U6DqZf8M
 
 ---
+## Props and Data Binding
+1. Add Attribute. Here attribute (the prop) is called thisIsAProp
+`<Modal thisIsAProp="text data from App.vue"/>`
+2. Accept the prop in the component script:  
+```
+<script>
+export default {
+  props: ['thisIsAProp']  //should be in quotes
+}
+</script>
+```  
+3. Output the prop value
+`<p> {{ thisIsAProp }}</p>`
+
+---
+4. To use data binding, use the v-bind: or :. Bind to either data in the string, ie :databinding="[1,2,'text',true]" or to a template property.  
+`:dataBoundPropToATemplateProperty="aProperty"`  
+5. Add the template property
+```
+<script>
+export default {
+  data() { 
+    return {
+      aProperty: "This is a text property"
+    }
+  }
+}
+</script>
+
+```
+6. Then use steps 2 and 3 above to output the data. 
+
+
 
