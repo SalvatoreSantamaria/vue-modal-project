@@ -3,6 +3,9 @@
       <img alt="Vue logo" src="./assets/logo.png">
       <HelloWorld msg="Welcome to Your Vue.js App Yay!"/> <!-- Import component step 2 -->
       <p>{{ title }}</p> <!--Template Property 2 -->
+
+      <input type="text" ref="templateRef"> <!--Template Ref 1 -->
+      <button @click="handleClick">Click</button>
     </div>
 
 </template>
@@ -19,6 +22,13 @@ export default {
   },
   components: { // Import component step 3
     HelloWorld
+  },
+  methods: {
+    handleClick() {
+      console.log(this.$refs.templateRef) // Template Ref 2
+      this.$refs.templateRef.classList.add('active') // add a class that is active
+      this.$refs.templateRef.focus() //javascript focus on the ref element
+    }
   }
 }
 </script>

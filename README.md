@@ -42,6 +42,7 @@ Public/index.html: Where the app is injected
 src folder: Where app is written
 main.js: JavaScript file that kickstarts the application with the `createApp(App).mount('#app')` method
 
+---
 ## Basic component importing
 https://codesandbox.io/s/basic-component-importing-d3ui7
 
@@ -56,3 +57,31 @@ export default {
 };
 ```
 4. Create the component file with a .vue extension under the components folder. Include template, scripe, style.
+
+---
+## Basic script data 
+1. Add the property to the data function in the script
+```
+  data() {
+    return {
+      title: "This is the title!"
+    }
+  },
+```
+2. Output to the template `<p>{{ title }}</p>`
+
+## Use Refs to get references to DOM elements
+1. Use ref="nameCanBeWhateverYouLike" on an DOM element: 
+```
+<input type="text" ref="templateRef"><button @click="handleClick">Click</button>
+```
+2. Do JavaScript things with the reference using a method:
+```
+methods: {
+  handleClick() {
+    console.log(this.$refs.templateRef)
+    this.$refs.templateRef.classList.add('active') // add a class that is active
+    this.$refs.templateRef.focus() //javascript focus on the ref element
+  }
+}
+```
