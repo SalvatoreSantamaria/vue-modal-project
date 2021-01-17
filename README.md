@@ -35,12 +35,11 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 
 ### Notes
-Public/index.html: Where the app is injected
-  <div id="app"></div>
-  <!-- built files will be auto injected -->
-
-src folder: Where app is written
-main.js: JavaScript file that kickstarts the application with the `createApp(App).mount('#app')` method
+* Public/index.html: Where the app is injected  
+  `<div id="app"></div>`
+* src folder: Where app is written  
+* main.js: JavaScript file that kickstarts the application with the `createApp(App).mount('#app')` method  
+* App.vue: This is the root component
 
 ---
 ## Basic component importing
@@ -85,3 +84,10 @@ methods: {
   }
 }
 ```
+
+---
+## Styling: Scoped vs Global
+See https://www.youtube.com/watch?v=KM1U6DqZf8M
+
+---
+
