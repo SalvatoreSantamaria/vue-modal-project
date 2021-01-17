@@ -1,6 +1,7 @@
 <template>
+
     <div id="app">
-      <img alt="Vue logo" src="./assets/logo.png">
+      <Modal />
       <HelloWorld msg="Welcome to Your Vue.js App Yay!"/> <!-- Import component step 2 -->
       <p>{{ title }}</p> <!--Template Property 2 -->
 
@@ -12,6 +13,7 @@
 
 <script>
 import HelloWorld from './components/HelloWorld.vue' // Import component step 1
+import Modal from './components/Modal.vue'
 
 export default {
   name: 'App',
@@ -21,7 +23,8 @@ export default {
     }
   },
   components: { // Import component step 3
-    HelloWorld
+    HelloWorld,
+    Modal
   },
   methods: {
     handleClick() {
