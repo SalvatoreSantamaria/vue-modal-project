@@ -1,5 +1,5 @@
 <template>
-  <div class="backdrop">
+  <div class="backdrop" @click="closeModal"> <!-- Emitting Custom events 5 -->
     <!-- passing theme prop to add the class 'saleClass' if the theme is equal to sale -->
     <div class="modal" :class="{ saleClass: theme === 'sale' }">
       <p>Modal content</p>
@@ -13,8 +13,12 @@
 <script>
 export default {
   // props takes in any values we are accepting in this component.
-  props: ['theme', 'thisIsAProp', 'thisIsADataBoundProp', 'dataBoundPropToATemplateProperty']  //Props 2, Data Bound Props 2, Data Bound To A Template Prop 3: Accept prop into child component, should be in quotes
-
+  props: ['theme', 'thisIsAProp', 'thisIsADataBoundProp', 'dataBoundPropToATemplateProperty'],  //Props 2, Data Bound Props 2, Data Bound To A Template Prop 3: Accept prop into child component, should be in quotes
+  methods: {
+    closeModal() { // Emitting Custom events 6
+      this.$emit('close') // this is a custom event
+    }
+  }
 }
 </script>
 

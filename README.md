@@ -92,6 +92,7 @@ See https://www.youtube.com/watch?v=KM1U6DqZf8M
 
 ---
 ## Props and Data Binding
+https://codesandbox.io/s/basic-props-b9g33
 1. Add Attribute. Here attribute (the prop) is called thisIsAProp
 `<Modal thisIsAProp="text data from App.vue"/>`
 2. Accept the prop in the component script:  
@@ -123,5 +124,44 @@ export default {
 ```
 6. Then use steps 2 and 3 above to output the data. 
 
-
-
+---
+## Emitting Custom Events
+To get an event to connect to another component:
+#### In Parent Component
+1. (Optional) Add any property needed to data in the parent component 
+```
+data() { return { showModal: false }}
+```
+2.  (Optional) Add the if statement, etc 
+```
+<div v-if="showModal">
+```
+3. Add a parent element event: 
+```
+<button @click="toggleModal">Open Modal</button>
+```
+4. Add method for parent element click event 
+```
+toggleModal() { 
+  this.showModal = !this.showModal
+}
+```
+5.  Add the method to the child component and connect it to the custom event (named @close)
+```
+<div v-if="showModal"> 
+  <Modal @close="toggleModal"/>
+</div>
+```
+#### In Child Component  
+6. Emit the custom event from a method
+```
+methods: {
+  closeModal() {
+    this.$emit('close') // this is a custom event named close
+  }
+}
+```
+7. Add the method to an event in the child component.
+```
+<div class="backdrop" @click="closeModal"></div>
+```
