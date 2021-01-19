@@ -165,3 +165,8 @@ methods: {
 ```
 <div class="backdrop" @click="closeModal"></div>
 ```
+#### Click Event Modifier 
+Add the modifier to the event, ie .right, .left, .shift, .alt. Use .self to target element directly (and to prevent sub elements from being targeted)
+```
+<button @click.right="toggleModal">Open Modal With Right Click</button>
+```
