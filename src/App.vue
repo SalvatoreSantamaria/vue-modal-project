@@ -12,7 +12,7 @@
           // Emitting Custom events 7: Listening to custom event @close, and firing the function "toggleModal"
         -->
       </div>
-      <button @click="toggleModal">Open Modal</button><!--  Emitting Custom events 3 -->
+      <button @click.right="toggleModal">Open Modal With Right Click</button><!--  Emitting Custom events 3 -->
       <HelloWorld msg="Welcome to Your Vue.js App Yay!"/> <!-- Import component step 2 -->
       <p>{{ title }}</p> <!--Template Property 2 -->
 
