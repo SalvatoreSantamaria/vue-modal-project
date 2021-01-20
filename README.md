@@ -170,3 +170,5 @@ Add the modifier to the event, ie .right, .left, .shift, .alt. Use .self to targ
 ```
 <button @click.right="toggleModal">Open Modal With Right Click</button>
 ```
+
+Test
