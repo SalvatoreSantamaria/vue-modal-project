@@ -4,13 +4,24 @@
       <div v-if="showModal"> <!--  Emitting Custom event 2 -->
         <Modal theme="sale" thisIsAProp="text data from App.vue" :thisIsADataBoundProp="['an','array',1,2,3]" :dataBoundPropToATemplateProperty="aProperty"
         @close="toggleModal"
-        /> 
+        > 
         <!-- 
           Props 1:  Add Attribute. Here attribute (the prop) is called thisIsAProp. 
           Data Binding Props 1: :thisIsADataBoundProp is the prop and bound to an array 
           Data Bound To A Template Prop 1: :dataBoundPropToATemplateProperty is the prop and bound to the template property named aProperty
           // Emitting Custom events 7: Listening to custom event @close, and firing the function "toggleModal"
         -->
+        <!-- Named Slots 1. Using slot directive to give template a name, and calling the slot thisIsTheSlotName-->
+        <template v-slot:thisIsTheSlotName> 
+          <a href="#">Named Slot Link 1</a>
+          <a href="#">Named Slot Link 2</a>
+        </template> 
+        <!-- Named Slots 1 -->
+        <!-- Slots 1 and Slots Default Content 1. If no content, then the default content from the parent <slot></slot>-->
+        <h1>Ninja Giveaway</h1>
+        <p>Grab your Ninja swag</p>
+         <!-- Slots 1-->
+        </Modal>
       </div>
       <button @click.right="toggleModal">Open Modal With Right Click</button><!--  Emitting Custom events 3 -->
       <HelloWorld msg="Welcome to Your Vue.js App Yay!"/> <!-- Import component step 2 -->
