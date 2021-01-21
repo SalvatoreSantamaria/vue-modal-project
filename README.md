@@ -171,4 +171,39 @@ Add the modifier to the event, ie .right, .left, .shift, .alt. Use .self to targ
 <button @click.right="toggleModal">Open Modal With Right Click</button>
 ```
 
-Test
+---
+## Slots
+Slots- for passing custom templates into components
+1. From the parent, add html. If nothing is passed here, then whatever text is in the child <slot></slot> will render.  
+App.vue  
+```
+<template>
+  <Modal>
+    <h1>Some Text Here</h1>
+  </Modal>
+</template>
+```
+
+2. From the child, the html is displayed in the slot: 
+Modal.vue 
+```
+<template>
+  <slot>This text only renders if no text is passed through</slot>
+</template>
+```
+
+3. Create a named slot by adding the slot directive 
+App.vue 
+```
+<template>
+  <template v-slot:thisIsTheSlotName> 
+    <a href="#">Named Slot Link 1</a>
+    <a href="#">Named Slot Link 2</a>
+  </template> 
+</template>
+```
+4. Call the named slot in the child
+Modal.vue
+```
+<slot name="thisIsTheSlotName"></slot>
+```

@@ -6,6 +6,13 @@
       <p> {{ thisIsAProp }}</p> <!-- Props 3: output the value of the prop onto the page -->
       <p>{{ thisIsADataBoundProp }}</p><!-- Data Bound Props 3: output the value of the prop onto the page -->
       <p>{{ dataBoundPropToATemplateProperty }}</p><!-- Data Bound To A Template Prop 4: output value-->
+      <slot></slot>  <!-- Slots 2. This is default and is always called -->
+        <div class="actions">
+          <!-- Named Slot 2. Must call the slot name -->
+            <slot name="thisIsTheSlotName"></slot>
+          <!-- Named Slot 2 -->
+        </div>
+      <slot>This default content text will only show if nothing is passed into the corresponding template</slot><!-- Slots default content 1 -->
     </div>
   </div>
 </template>
