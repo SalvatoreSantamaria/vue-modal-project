@@ -207,3 +207,9 @@ Modal.vue
 ```
 <slot name="thisIsTheSlotName"></slot>
 ```
+---
+## Teleport 
+Allows us to move content in the app to somewhere else. All the functionality will still work. 
+1. Replace `<div>` with `<teleport to=".modals">`. Targeting the .modals class here. 
+2. Add the class to the targeted div. `<div class="modals"></div>` 
+
