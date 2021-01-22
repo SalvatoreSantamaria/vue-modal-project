@@ -29,6 +29,9 @@
 
       <input type="text" ref="templateRef"> <!--Template Ref 1 -->
       <button @click="handleClick">Click</button>
+      <teleport to=".modals"> <!-- Using Teleport 1 -->
+        <h1>This was added using teleport</h1>
+      </teleport>
     </div>
 
 </template>
