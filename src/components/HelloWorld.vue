@@ -25,6 +25,11 @@
         Double click to pass in a param. It will render {{ here }}
       </div>
     </div>
+    <div>
+      <ul>
+        <li v-for="car in cars" v-bind:key="car.id">{{ car.year }} {{ car.make }} {{ car.model }}</li> <!-- Using v-for 2 -->
+      </ul>
+    </div>
   </div>
 </template>
 
@@ -35,7 +40,15 @@ export default {
     return { 
       countProperty: 0, //Click event 1
       showDiv: false, //Conditional Rendering 4
-      here: 'here' //Pass Params in Events 3
+      here: 'here', //Pass Params in Events 3
+      cars: [ //Using v-for 1
+        { id: 1, make: 'Ford', model: 'Escape', year: 2005 },
+        { id: 2, make: 'Ford', model: 'F-250', year: 1999 },
+        { id: 3, make: 'Ford', model: 'F-150', year: 2020 },
+        { id: 4, make: 'Chevrolet', model: 'Cruze', year: 2005 },
+        { id: 5, make: 'Cadillac', model: 'Escalade', year: 2018 },
+        { id: 6, make: 'Volkswagon', model: 'Touareg', year: 2005 },
+      ]
     }
   },
   methods: {
