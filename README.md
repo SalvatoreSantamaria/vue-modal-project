@@ -319,3 +319,23 @@ Allows us to move content in the app to somewhere else. All the functionality wi
 
 ---
 ## The v-for Directive
+1. Add data:
+```
+  data() { 
+    return { 
+      cars: [
+        { id: 1, make: 'Ford', model: 'Escape', year: 2005 },
+        { id: 2, make: 'Ford', model: 'F-250', year: 1999 },
+        { id: 3, make: 'Ford', model: 'F-150', year: 2020 }
+      ]
+    }
+  }
+```
+2. Use `v-for="item in items"` to output data. Must use `v-bind:key="abc"` or `:key="abc"` shorthand
+```
+<ul>
+  <li v-for="car in cars" v-bind:key="car.id">
+    {{ car.year }} {{ car.make }}
+  </li> 
+</ul>
+```
