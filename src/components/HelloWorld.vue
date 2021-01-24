@@ -9,7 +9,6 @@
     </div>
     <div>
       <p>Using Conditional Rendering</p>
-      
       <button @click="showAndHideMethod">Using Conditional Rendering</button> <!-- Conditional Rendering 2 -->
       <div v-if="showDiv"> <!-- Conditional Rendering 1 -->
         Using v-if="", which takes elements of out dom completely
@@ -21,7 +20,11 @@
         Using v-show="", which uses CSS to display block when true, and display none when false.
       </div>
     </div>
-
+    <div>
+      <div @dblclick="passParamIntoEvent($event, 'some param')"> <!-- Pass Params in Events 1. To incldue the event, pass $event first -->
+        Double click to pass in a param. It will render {{ here }}
+      </div>
+    </div>
   </div>
 </template>
 
@@ -31,7 +34,8 @@ export default {
   data() { 
     return { 
       countProperty: 0, //Click event 1
-      showDiv: false //Conditional Rendering 4
+      showDiv: false, //Conditional Rendering 4
+      here: 'here'
     }
   },
   methods: {
@@ -40,6 +44,11 @@ export default {
     }, 
     showAndHideMethod() { //Conditional Rendering 3
       this.showDiv = !this.showDiv 
+    }, 
+    passParamIntoEvent(event, param) { //Pass Params in Events 2
+      console.log(event)
+      console.log(param)
+      this.here = param
     }
   },
   props: {
