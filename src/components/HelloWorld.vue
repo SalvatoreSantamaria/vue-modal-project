@@ -27,7 +27,8 @@
     </div>
     <div>
       <ul>
-        <li v-for="car in cars" v-bind:key="car.id">{{ car.year }} {{ car.make }} {{ car.model }}</li> <!-- Using v-for 2 -->
+        <!-- Using v-for 2 -->
+        <li v-for="car in cars" v-bind:key="car.id">{{ car.year }} {{ car.make }} {{ car.model }}</li> 
       </ul>
     </div>
   </div>
