@@ -165,7 +165,31 @@ data() {
 ```
 ___
 ## Click Events
-Note: `@click` is shorthand for `v-on:click`
+Note: `@click` is shorthand for `v-on:click`  
+
+### Passing in arguments to the event
+1. Events like `@click`, `@dbleclick`, `@mouseover`, etc automatically give us access to the event object. Access it in the method with `$event` syntax, it should be passed first. Pass in the param second. 
+```
+<div @click="someEvent($event, 'some param')">Click Here</div>
+```
+2. Add the method and (optionally) pass in the event, and then pass in the param
+```
+methods: {
+  someEvent(event, param) {
+    console.log(event)
+    console.log(param)
+    this.updateAParam = param //Updating a param
+  }
+}
+```
+3. For reference, here is the data
+```
+data() {
+  return {
+    updateAParam: 'please update this value'
+  }
+}
+```
 
 ### Using a click event to update a property directly in the template
 
@@ -232,7 +256,7 @@ toggleModal() {
   <Modal @close="toggleModal"/>
 </div>
 ```
-#### In Child Component  
+### In Child Component  
 6. Emit the custom event from a method
 ```
 methods: {
@@ -245,7 +269,7 @@ methods: {
 ```
 <div class="backdrop" @click="closeModal"></div>
 ```
-#### Click Event Modifier 
+### Click Event Modifier 
 Add the modifier to the event, ie .right, .left, .shift, .alt. Use .self to target element directly (and to prevent sub elements from being targeted)
 ```
 <button @click.right="toggleModal">Open Modal With Right Click</button>
