@@ -35,7 +35,7 @@ export default {
     return { 
       countProperty: 0, //Click event 1
       showDiv: false, //Conditional Rendering 4
-      here: 'here'
+      here: 'here' //Pass Params in Events 3
     }
   },
   methods: {
