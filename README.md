@@ -124,6 +124,48 @@ export default {
 ```
 6. Then use steps 2 and 3 above to output the data. 
 
+___
+## Click Events
+Note: `@click` is shorthand for `v-on:click`
+
+### Using a click event to update a property directly in the template
+
+1. A property in data must exist
+```
+data() { 
+  return { 
+    countProperty: 0
+  }
+},
+```
+2. Output the data on screen
+```
+<p>The count is {{ countProperty }}</p> 
+```
+
+3. Add the event. Target the property with `v-on:`. Here some JavaScript is running directly inside the `""`.
+```  
+<button v-on:click="countProperty += 1">Increase Count</button>
+```  
+
+### Using a click event with a method
+Add 1 and 2 above, skip step 3.
+
+4. Add the event, but it should now call the method.
+```  
+<button v-on:click="thisIsAMethod">Increase Count</button>
+```  
+
+5. Target the property with a method. Add the method to `methods`
+```
+  methods: {
+    thisIsAMethod() {
+      this.countProperty -= 1 //target the property inside the method
+    }
+  },
+```
+
+
 ---
 ## Emitting Custom Events
 To get an event to connect to another component:
