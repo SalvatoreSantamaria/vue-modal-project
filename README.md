@@ -125,6 +125,45 @@ export default {
 6. Then use steps 2 and 3 above to output the data. 
 
 ___
+## Conditional Rendering
+1. Add conditional rendering with `v-if=""`
+```
+<div v-if="showDiv">
+  Using conditional rendering
+</div>
+```
+2. (Optional) Added an event that connects to a method, to change condition
+```
+<button @click="showAndHideMethod">Using Conditional Rendering</button>
+```
+3. (Optional) Add the method to change the condition
+```
+showAndHideMethod() {
+  this.showDiv = !this.showDiv 
+}
+```
+4. (Optional) Added the property for the condition
+```
+data() { 
+  return { 
+    showDiv: false
+  }
+}
+```
+5. (Optional) Use v-else or v-else-if 
+```
+<div v-else> <!-- Conditional Rendering 5 -->
+  Using else
+</div>
+```
+### Related: v-show 
+`v-show=""` uses CSS to `display:block` when a condition is true, and `display:none` when false.
+```
+<div v-show="showDiv">
+  Using 
+</div>
+```
+___
 ## Click Events
 Note: `@click` is shorthand for `v-on:click`
 
@@ -164,7 +203,6 @@ Add 1 and 2 above, skip step 3.
     }
   },
 ```
-
 
 ---
 ## Emitting Custom Events
