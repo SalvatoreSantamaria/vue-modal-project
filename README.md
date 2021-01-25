@@ -339,3 +339,29 @@ Allows us to move content in the app to somewhere else. All the functionality wi
   </li> 
 </ul>
 ```
+---
+## Dynamic Classes
+1. Add the boolean to the data
+```
+data() {
+  return {
+    cars: [
+      { id: 1, make: 'Ford', isFav: true}
+    ]
+  }
+}
+```
+
+2. In the v-for, add the dynamic class that evaluates a boolean
+```
+<li v-for="car in cars" :key="car.id" :class="{ fav: car.isFav}">{{ car.year }}</li> 
+```
+
+3. In the style, add the class. It will only be added to 'true'
+```
+<style scoped>
+  li.fav {
+    color: #ff9ed2;
+  }
+</style>
+```
