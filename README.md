@@ -365,3 +365,23 @@ data() {
   }
 </style>
 ```
+
+## Computed Properties
+1. Computed properties depend on other data. When data changes, computed properties will update. Here I am getting the data from the cars array.
+```
+  computed: { 
+    filteredCars() {
+      return this.cars.filter((car) => car.isFav ) //filtering .isFav === true. .isFav is toggles true/false using a click
+    }
+  }
+```
+
+2. Cycle through the filteredCars computed properties
+```
+<div>
+  <h1>Computed Properties</h1> 
+    <ul> 
+      <li v-for="favorite in filteredCars" :key="favorite.id" >This car is a fav! {{favorite.model}}</li>
+    </ul>
+</div>
+```

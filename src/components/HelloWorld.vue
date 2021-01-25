@@ -28,8 +28,9 @@
     <div>
       <ul>
         <!-- Using v-for 2, Attribute Binding 3 (Extra Example using :href), Dynamic Classes 2 using :class. Using key value pairs, the class is being
-        evaluated based on if car.isFav is true or false, so it become class="{fav: true}" or false -->
-        <li v-for="car in cars" v-bind:key="car.id" :class="{ fav: car.isFav}">{{ car.year }} {{ car.make }} {{ car.model }} | <a :href="car.id">ID Link Attribute Binding</a></li> 
+        evaluated based on if car.isFav is true or false, so it become class="{fav: true}" or false. As a bonus, it is made clickable with the :click event 
+        that toggles the value of isFav to true and false -->
+        <li v-for="car in cars" v-bind:key="car.id" :class="{ fav: car.isFav}" v-on:click="car.isFav = !car.isFav">{{ car.year }} {{ car.make }} {{ car.model }} | <a :href="car.id">ID Link Attribute Binding</a></li> 
       </ul>
     </div>
     <div>
@@ -37,7 +38,13 @@
       <a v-bind:href="aUrl">This comes from aUrl property</a>
       <br>
       <a :href="anotherUrl">This comes from anotherUrl property</a>
-
+    </div>
+    <div>
+      <!-- Computed Properties 2 -->
+      <h1>Computed Properties</h1> 
+        <ul> <!-- Cycling through the filteredCars computed properties -->
+          <li v-for="favorite in filteredCars" :key="favorite.id" >This car is a fav! {{favorite.model}}</li>
+        </ul>
     </div>
   </div>
 </template>
@@ -77,6 +84,11 @@ export default {
   },
   props: {
     msg: String
+  }, 
+  computed: { //Computed Properties 1. Computed properties depend on other data. When data changes, computed properties will update
+    filteredCars() {
+      return this.cars.filter((car) => car.isFav ) //filtering .isFav === true
+    }
   }
 }
 </script>
