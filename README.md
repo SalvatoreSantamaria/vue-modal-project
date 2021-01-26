@@ -126,6 +126,7 @@ export default {
 
 ___
 ## Conditional Rendering
+https://codesandbox.io/s/conditional-rendering-v-if-v-else-and-v-show-7qmlz?file=/src/components/someComponent.vue 
 1. Add conditional rendering with `v-if=""`
 ```
 <div v-if="showDiv">
