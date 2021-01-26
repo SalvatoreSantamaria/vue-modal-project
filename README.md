@@ -319,6 +319,7 @@ Allows us to move content in the app to somewhere else. All the functionality wi
 
 ---
 ## The v-for Directive
+https://codesandbox.io/s/the-v-for-directive-00mxh?file=/src/components/someComponent.vue 
 1. Add data:
 ```
   data() { 
