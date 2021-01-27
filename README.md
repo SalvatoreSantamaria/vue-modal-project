@@ -387,3 +387,36 @@ data() {
     </ul>
 </div>
 ```
+___
+
+## Mixins
+https://codesandbox.io/s/basic-mixins-50kvd?file=/src/components/someComponent.vue:335-336
+A mixin is a reuseable chunk of code.  
+1. Make a mixin folder, then add the mixin file: `someMixin.js`. Add code, methods, data, etc.
+2. Import the mixin to the file you want to use it in: `import someMixin from "../mixins/someMixin.js"`
+3. Declare the mixin in the `<script></script>`
+```
+export default {
+  mixins: [someMixin]
+}
+```
+
+5. Use the javascript from the mixin as needed  
+
+// Component
+```
+<h2>{{ someInfo }}</h2>  //from mixin
+<button @click="clickThis">Click Me!</button> //method 'clickThis' is connected to the mixin
+```
+
+// Mixin
+data() {
+  return {
+    someInfo: 'This is from the mixin!"
+  }
+},
+methods: {
+  clickThis() {
+    console.log('from the clickThis method in the mixin')
+  }
+}
