@@ -1,7 +1,8 @@
 <template>
 
-    <div id="app">
-      <div v-if="showModal"> <!--  Emitting Custom event 2 -->
+    <div id="app" class="modalcontainer">
+
+      <div v-if="showModal" class="vifshowmodal"> <!--  Emitting Custom event 2 -->
         <Modal theme="sale" thisIsAProp="text data from App.vue" :thisIsADataBoundProp="['an','array',1,2,3]" :dataBoundPropToATemplateProperty="aProperty"
         @close="toggleModal"
         > 
@@ -13,9 +14,12 @@
         -->
         <!-- Named Slots 1. Using slot directive to give template a name, and calling the slot thisIsTheSlotName-->
         <template v-slot:thisIsTheSlotName> 
-          <a href="#">Named Slot Link 1</a>
-          <a href="#">Named Slot Link 2</a>
+          <div class="namedslots">
+            <a href="#">Named Slot Link 1</a>
+            <a href="#">Named Slot Link 2</a>
+          </div>
         </template> 
+
         <!-- Named Slots 1 -->
         <!-- Slots 1 and Slots Default Content 1. If no content, then the default content from the parent <slot></slot>-->
         <h1>Ninja Giveaway</h1>
@@ -23,15 +27,25 @@
          <!-- Slots 1-->
         </Modal>
       </div>
-      <button @click.right="toggleModal">Open Modal With Right Click</button><!--  Emitting Custom events 3 -->
-      <HelloWorld msg="Welcome to Your Vue.js App Yay!"/> <!-- Import component step 2 -->
-      <p>{{ title }}</p> <!--Template Property 2 -->
 
-      <input type="text" ref="templateRef"> <!--Template Ref 1 -->
-      <button @click="handleClick">Click</button>
+      <button @click.right="toggleModal">Open Modal With Right Click</button><!--  Emitting Custom events 3 -->
+
+      <div class="importcomponent">
+        <HelloWorld msg="Welcome to Your Vue.js App Yay!"/> <!-- Import component step 2 -->
+      </div>
+      
+      <div class="templateproperty">
+        <p>{{ title }}</p> <!--Template Property 2 -->
+        <input type="text" ref="templateRef"> <!--Template Ref 1 -->
+        <button @click="handleClick">Click</button>
+      </div>
+
       <teleport to=".modals"> <!-- Using Teleport 1 -->
+        <div class="usingteleport">
         <h1>This was added using teleport</h1>
+        </div>
       </teleport>
+
     </div>
 
 </template>
@@ -75,4 +89,67 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
+
+.vifshowmodal {
+    width: 400px;
+    border-radius: 20px;
+    background: blue;
+    /* color: white; */
+    /* text-align: center; */
+    padding: 10px 0;
+    /* margin: 40px auto; */
+}
+
+.modalcontainer {
+    width: 400px;
+    border-radius: 20px;
+    background: #e3f2fd;
+    /* color: white; */
+    /* text-align: center; */
+    padding: 10px 0;
+    /* margin: 40px auto; */
+}
+
+.namedslots {
+    width: 400px;
+    border-radius: 20px;
+    background: #bbdefb;
+    /* color: white; */
+    /* text-align: center; */
+    padding: 10px 0;
+    /* margin: 40px auto; */
+}
+
+.importcomponent{
+    width: 400px;
+    border-radius: 20px;
+    background: #90caf9;
+    /* color: white; */
+    /* text-align: center; */
+    padding: 10px 0;
+    /* margin: 40px auto; */
+}
+
+.templateproperty {
+    width: 400px;
+    border-radius: 20px;
+    background: #64b5f6;
+    /* color: white; */
+    /* text-align: center; */
+    padding: 10px 0;
+    /* margin: 40px auto; */
+}
+
+.usingteleport {
+    width: 400px;
+    border-radius: 20px;
+    background: #42a5f5;
+    /* color: white; */
+    /* text-align: center; */
+    padding: 10px 0;
+    /* margin: 40px auto; */
+}
+
+
+
 </style>
