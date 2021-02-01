@@ -55,7 +55,7 @@ export default {
   },
 };
 ```
-4. Create the component file with a .vue extension under the components folder. Include template, scripe, style.
+4. Create the component file with a .vue extension under the components folder. Include template, script, style.
 
 ---
 ## Basic script data 
