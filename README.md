@@ -420,3 +420,42 @@ methods: {
     console.log('from the clickThis method in the mixin')
   }
 }
+
+---
+## Sending data with custom events
+*See reaction timer project for live implementation*  
+
+1. Passing data from component to App.vue and then back to another component.
+someComponent:
+```
+  stopTimer() {
+      this.$emit('end', this.reactionTime) //Sending Custom Events with Data 1. Passing data from component via 'end'
+  }
+```
+
+2. Connect to the event with @end and set it equal to a method in this file
+App.vue:  
+```
+<Block v-if="isPlaying" :delay="delayProp" @end="endGameFunction"/> //set end to the method "endGameFunction"
+```
+
+3. Add the method and take in the param
+App.vue:
+```
+  endGameFunction(reactionTimeParameter) { 
+    this.score = reactionTimeParameter; //Take in the param that the custom event @end passed (and do something with it)
+  }
+```
+4. Output data 
+
+App.vue:
+```
+  data() {
+    return {
+      score: null //don't forget to add score as a data parameter
+    }
+```
+
+```
+  <p> {{ score }}</p> 
+```
